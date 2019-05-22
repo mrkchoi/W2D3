@@ -29,15 +29,17 @@ class Game
   def play
     set_towers(welcome_prompt)
     until game_over?
+      render
       make_move
     end
-
+    
+    render
     success_message
   end
 
   def welcome_prompt
-    p 'Welcome to Towers of Hanoi'
-    p "Set your difficulty level (1 - 5)\n"
+    print "Welcome to Towers of Hanoi\n\n"
+    print "Set your difficulty level (1 - 5)\n"
     gets.chomp.to_i
   end
 
@@ -46,13 +48,14 @@ class Game
 
     if valid_move?(user_move)
       # logic to make move
+      starting, ending = user_move
+      @towers[ending].push(@towers[starting].pop) 
     end
-
   end
 
   def prompt_user
     p "Enter a starting tower & ending tower (i.e. '0,2'):\n\n"
-    gets.chomp.split(',').map(&:to_i)
+    gets.chomp.split(',').map {|el| (el.to_i) - 1}
   end
 
   def valid_move?(move) # => [0,2]
@@ -60,21 +63,28 @@ class Game
 
     if @towers[start].empty?
       return false
-    elsif @towers[ending].empty?
-      return true      
-    elsif @towers[start].last < @towers[ending].last
-      return false
+    elsif @towers[ending].empty? || (@towers[start].last < @towers[ending].last)
+      return true
     end
+
+    false
   end
 
   def game_over?
-    return true if @towers[1].length == @num_towers || @towers[2] == @num_towers
+    return true if @towers[1].length == @num_towers || @towers[2].length == @num_towers
     false
   end
 
   def render
+    @towers.each {|tower| p tower}
   end
 
   def success_message
+    print "\n\nYou are a bossssss.\n\n"
   end
+end
+
+if __FILE__ == $PROGRAM_NAME
+  g = Game.new()
+  g.play
 end
