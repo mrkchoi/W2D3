@@ -47,4 +47,18 @@ RSpec.describe do
     end
   end
 
+  describe '#stock_picker' do
+    let(:a) { [3, 2, 10, 3, 4, 1]}
+
+    it 'outputs the most profitable pair of days on which to buy the first stock and sell the stock' do
+      expect(stock_picker(a)).to eq([1, 2])
+    end
+
+    it 'you cannot sell a stock before you buy it' do 
+      expect(stock_picker(a)).to eq([1, 2])
+      expect(stock_picker(a)).to_not eq([2, 5])
+    end
+
+  end
+
 end
