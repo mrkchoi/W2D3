@@ -1,9 +1,10 @@
 # towers_of_hanoi
 
 class Game
+  attr_accessor :towers, :num_towers
+
   def initialize
     @towers = [[],[],[]]
-    @game_over = false
   end
 
   def set_towers(difficulty)
