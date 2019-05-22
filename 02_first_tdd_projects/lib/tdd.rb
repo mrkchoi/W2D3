@@ -26,3 +26,15 @@ class Array
 end
 
 #my_transpose
+def my_transpose(arr)
+  output_arr = Array.new(arr.length) {Array.new(arr.length) {0}}
+
+  (0...arr.length).each do |i|
+    (0...arr.length).each do |j|
+      output_arr[j][i] = arr[i][j]
+    end
+  end
+
+  output_arr
+end
+
