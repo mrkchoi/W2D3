@@ -40,20 +40,21 @@ end
 
 #stock_picker
 def stock_picker(stock_prices)
-
-  
   min = 0
+  max = 1
   i = 0
   j = 1
-  max = 1
+
   until j == stock_prices.length - 1
     max = j if stock_prices[j] > stock_prices[max]
     j += 1
   end
+
   while i < max
     min = i if stock_prices[i] < stock_prices[min]
     i += 1
   end
   
-  return [min, max]
+  [min, max]
 end
+

@@ -1,9 +1,6 @@
 require 'rspec'
 require 'tdd'
 
-RSpec.describe do
-
-
   describe '#my_uniq' do 
     it "remove duplicate elements from an array" do
       expect(my_uniq([1,1,2,2,3,3])).to eq([1,2,3])
@@ -58,7 +55,4 @@ RSpec.describe do
       expect(stock_picker(a)).to eq([1, 2])
       expect(stock_picker(a)).to_not eq([2, 5])
     end
-
   end
-
-end
