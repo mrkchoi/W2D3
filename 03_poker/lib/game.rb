@@ -1,5 +1,5 @@
 require 'players'
-require 'deck'
+require_relative 'deck'
 
 class Game
 end
