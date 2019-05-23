@@ -30,19 +30,19 @@ end
 
 
 
-hash = Hash.new(0)
+# hash = Hash.new(0)
 
-cards.each do |card|
-  hash[card.value] += 1
-end
+# cards.each do |card|
+#   hash[card.value] += 1
+# end
 
-# four of a kind
-if hash.values.include?(4)
-# full house
-hash.values.include?(3) && hash.values.include?(2)
-# three of a kind
-hash.values.include?(3)
-# pair
-if hash.values.include?(2)
+# # four of a kind
+# if hash.values.include?(4)
+# # full house
+# hash.values.include?(3) && hash.values.include?(2)
+# # three of a kind
+# hash.values.include?(3)
+# # pair
+# if hash.values.include?(2)
 
 
